@@ -1,13 +1,15 @@
 body {
   display: flex;
   justify-content: center;
+  align-items: center;
+  background-color: rgb(37, 37, 37);
 }
 
 #wholePage{
     height: 800px;
     width: 800px;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(16, 50px [col-start]);
 }
 
 * {
@@ -16,18 +18,19 @@ body {
   
 #wholePage>div {
     border: 1px solid black;
-    margin: 0;
+    /* margin: 0;
     height: 50px;
     width: 50px;
-    flex: 1 1 auto;
+    flex: 1 1 auto; */
+    background-color: white;
   }
   
-#wholePage>div:nth-child(16n + 1) {
+/* #wholePage>div:nth-child(16n + 1) {
     width: 100%;
     border: 0;
     height: 0;
   }
 
   .gridBox {
-    /* background-color: yellow; */
-  }
+    background-color: yellow;
+  } */
