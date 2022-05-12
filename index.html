@@ -10,17 +10,30 @@
 <body>
     <div id="header">
         <h1>Etch a sketch.</h1>
-        <div id="selection-board">
-            <div id="grid-input">
-                <p class="input-ask">Generate grid</p>
-                <button id="btn-generete-grid">Click!</button>
-                <p class="input-ask warning"></p>
-            </div>
+    </div>
+    <div id="selection-board">
+        <div id="grid-input" class="user-selection">
+            <p class="input-ask">Generate grid</p>
+            <button id="btn-generete-grid" class="btn">Click!</button>
+            <p class="input-ask warning"></p>
+        </div>
+        <div id="color-input" class="user-selection">
+            <p class="input-ask">Choose color</p>
+            <button id="choose-color" class="btn">Click!</button>
+            <p class="input-ask warning"></p>
+        </div>
+        <div id="reset-input" class="user-selection">
+            <p class="input-ask">Reset grid color</p>
+            <button id="reset-color" class="btn">Click!</button>
+            <p class="input-ask warning"></p>
         </div>
     </div>
     <div id="wholePage">
         
     </div>
-    
+
+    <div id="footer">
+        <p id="sign">Copyright @ Grzegorz Bandyra 2022</p>
+    </div>
 </body>
 </html>

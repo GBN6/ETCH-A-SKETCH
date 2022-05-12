@@ -1,6 +1,10 @@
 const container = document.querySelector('#wholePage');
 const gridBtn = document.querySelector('#btn-generete-grid');
 const gridBtnWarning = document.querySelector('.warning');
+const colorBtn = document.querySelector('#choose-color');
+const resetBtn = document.querySelector('#reset-color');
+let colorChosen = {};
+
 
 // function creating grid of divs from 0 to 255
 function creatGrid()
@@ -18,9 +22,10 @@ function creatGrid()
         div.setAttribute('id', 'div' + i)
         container.appendChild(div);
         container.style.gridTemplateColumns = `repeat(${y/x}, auto [col-start])`;
-        const boxHover = document.querySelectorAll('.gridBox');
-        boxHover.forEach(element => element.addEventListener('mouseover', colorChange));
+        
     }
+    const boxHover = document.querySelectorAll('.gridBox');
+    boxHover.forEach(element => element.addEventListener('mouseover', colorDrawing));
 }
 
 //function to remove children nodes
@@ -32,11 +37,70 @@ function clearGrid()
     }
 }
 
-// function to change colors
-function colorChange(e) {
-    e.target.style.backgroundColor = 'yellow';
+function colorDrawing(e)
+{
+    // let colorChosen = colorSelection();
+    // console.log(colorChosen);
+    switch (colorChosen)
+        {
+            case 'red':
+                e.target.style.backgroundColor = 'red';
+                break;
+            case 'orange':
+                e.target.style.backgroundColor = 'orange';
+                break;
+            case 'yellow':
+                e.target.style.backgroundColor = 'yellow';
+                break;
+            case 'green':
+                e.target.style.backgroundColor = 'green';
+                break;
+            case 'blue':
+                e.target.style.backgroundColor = 'blue';
+                break;
+            case 'indygo':
+                e.target.style.backgroundColor = 'indigo';
+                break;
+            case 'violet':
+                e.target.style.backgroundColor = 'violet';
+                break;
+            case 'black':
+                e.target.style.backgroundColor = 'black';
+                break;
+            default:
+                e.target.style.backgroundColor = 'black';
+        }
+
 }
 
+// function to change colors
+function colorSelection() {
+    const colors = ["red", "orange", "yellow", "green", "blue", "indygo", "violet", "black"]
+    let colorSelection = prompt('Please select one of available colors:' +
+    '"red", "orange", "yellow", "green", "blue", "indygo", "violet", "black"', '').trim().toLowerCase();
+    if (colorSelection === '' || colorSelection === null) 
+    {
+
+    }
+    else if (!colors.includes(colorSelection))
+    {
+        alert('Enter available color: "red", "orange", "yellow", "green", "blue", "indygo", "violet", "black"')
+    }
+    else 
+    {
+        console.log(colorSelection)
+        colorChosen = colorSelection;
+        return colorChosen;
+    }
+    
+}
+
+// function to reset grid color to white
+function colorReset() 
+{
+    const boxHover = document.querySelectorAll('.gridBox');
+    boxHover.forEach(element => element.style.backgroundColor = 'white');
+}
 
 //function to get squares number from user
 function getNumberSquares()
@@ -59,18 +123,14 @@ function getNumberSquares()
         {
             alert('You didn\'t input number or it was higher than 100!');
         }
-
     }
-    
-
 }
 
 
 
+
+// const boxHover = document.querySelectorAll('.gridBox');
+// boxHover.forEach(element => element.addEventListener('mouseover', colorChange));
 gridBtn.addEventListener('click', creatGrid);
-const boxHover = document.querySelectorAll('.gridBox');
-boxHover.forEach(element => element.addEventListener('mouseover', colorChange));
-console.log(boxHover);
-
-
-
+colorBtn.addEventListener('click', colorSelection);
+resetBtn.addEventListener('click', colorReset);
