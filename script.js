@@ -40,6 +40,9 @@ function clearGrid()
 
 function colorDrawing(e)
 {
+    let r = Math.floor(Math.random() * 255) + 1;
+    let g = Math.floor(Math.random() * 255) + 1;
+    let b = Math.floor(Math.random() * 255) + 1;
     // let colorChosen = colorSelection();
     // console.log(colorChosen);
     switch (colorChosen)
@@ -68,6 +71,9 @@ function colorDrawing(e)
             case 'black':
                 e.target.style.backgroundColor = 'black';
                 break;
+            case 'random':
+                e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+                break;    
             default:
                 e.target.style.backgroundColor = 'black';
         }
@@ -76,9 +82,9 @@ function colorDrawing(e)
 
 // function to change colors
 function colorSelection() {
-    const colors = ["red", "orange", "yellow", "green", "blue", "indygo", "violet", "black"]
-    let colorSelection = prompt('Please select one of available colors:' +
-    '"red", "orange", "yellow", "green", "blue", "indygo", "violet", "black"', '').trim().toLowerCase();
+    const colors = ["red", "orange", "yellow", "green", "blue", "indygo", "violet", "black", "random"]
+    let colorSelection = prompt('Please select one of available colors: \n' +
+    '"red", "orange", "yellow", "green", "blue", "indygo", "violet", "black", "random"', '').trim().toLowerCase();
     if (colorSelection === '' || colorSelection === null) 
     {
 
