@@ -4,6 +4,7 @@ const gridBtnWarning = document.querySelector('.warning');
 const colorBtn = document.querySelector('#choose-color');
 const resetBtn = document.querySelector('#reset-color');
 let colorChosen = {};
+console.log(colorChosen);
 
 
 // function creating grid of divs from 0 to 255
@@ -88,7 +89,6 @@ function colorSelection() {
     }
     else 
     {
-        console.log(colorSelection)
         colorChosen = colorSelection;
         return colorChosen;
     }
