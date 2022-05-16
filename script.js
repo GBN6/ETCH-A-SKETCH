@@ -73,7 +73,14 @@ function colorDrawing(e)
                 break;
             case 'random':
                 e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-                break;    
+                break;
+            // case 'gradient':
+            //     e.target.classList.add('btn-opacity');
+            //     let opacity = Number(e.target.style.opacity);
+            //     let newOpacity = opacity + 0.10;
+            //     e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            //     e.target.style.opacity = `${newOpacity}`;
+            //     break;          
             default:
                 e.target.style.backgroundColor = 'black';
         }
@@ -106,6 +113,8 @@ function colorReset()
 {
     const boxHover = document.querySelectorAll('.gridBox');
     boxHover.forEach(element => element.style.backgroundColor = 'white');
+    boxHover.
+    boxHover.classList.remove('btn-opacity');
 }
 
 //function to get squares number from user

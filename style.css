@@ -49,10 +49,26 @@ h1 {
 
 .user-selection{
   display: flex;
-  flex: 1 auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.btn {
+  width: 50px;
+  height: 30px;
+  border-radius: 0px;
+  box-shadow: 6px 6px black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+  background-color: #DDDDDD;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  border-style: inset;
 }
 
 * {
