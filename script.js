@@ -116,7 +116,7 @@ function getNumberSquares()
     let keepGoing = true;
     while(keepGoing)
     {
-        let numberSquares = parseInt(prompt('Please write how many number of squares per side show grid have. Max 100', ));
+        let numberSquares = parseInt(prompt('Please write how many number of squares per side should grid have. Max 100', ));
         console.log(numberSquares);
         if (Number.isInteger(numberSquares) && numberSquares <= 100)
         {
