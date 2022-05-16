@@ -4,7 +4,10 @@ const gridBtnWarning = document.querySelector('.warning');
 const colorBtn = document.querySelector('#choose-color');
 const resetBtn = document.querySelector('#reset-color');
 let colorChosen = {};
-console.log(colorChosen);
+let mouseDown = false
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
+console.log(mouseDown);
 
 
 // function creating grid of divs from 0 to 255
@@ -13,9 +16,6 @@ function creatGrid()
     clearGrid();
     let x = getNumberSquares()
     let y = x * x;
-    // while (container.firstChild) {
-    //     container.removeChild(container.firstChild);
-    // }
     for (let i = 0; i < y; i++)
     {
         const div = document.createElement('div');
@@ -40,11 +40,11 @@ function clearGrid()
 
 function colorDrawing(e)
 {
+    if (e.type === 'mouseover' && !mouseDown) return
+    console.log(mouseDown);
     let r = Math.floor(Math.random() * 255) + 1;
     let g = Math.floor(Math.random() * 255) + 1;
     let b = Math.floor(Math.random() * 255) + 1;
-    // let colorChosen = colorSelection();
-    // console.log(colorChosen);
     switch (colorChosen)
         {
             case 'red':
@@ -73,14 +73,7 @@ function colorDrawing(e)
                 break;
             case 'random':
                 e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-                break;
-            // case 'gradient':
-            //     e.target.classList.add('btn-opacity');
-            //     let opacity = Number(e.target.style.opacity);
-            //     let newOpacity = opacity + 0.10;
-            //     e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-            //     e.target.style.opacity = `${newOpacity}`;
-            //     break;          
+                break;     
             default:
                 e.target.style.backgroundColor = 'black';
         }
@@ -141,11 +134,6 @@ function getNumberSquares()
     }
 }
 
-
-
-
-// const boxHover = document.querySelectorAll('.gridBox');
-// boxHover.forEach(element => element.addEventListener('mouseover', colorChange));
 gridBtn.addEventListener('click', creatGrid);
 colorBtn.addEventListener('click', colorSelection);
 resetBtn.addEventListener('click', colorReset);
